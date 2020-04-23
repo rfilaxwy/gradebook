@@ -8,11 +8,18 @@ namespace GradeBook
         public Book(string name)
         {
             grades = new List<double>();
-            this.name = name;
+            this.Name = name;
         }
         public void AddGrade(double grade)
         {
-            grades.Add(grade);
+            if (grade <= 100 && grade >= 0)
+            {
+                grades.Add(grade);
+            }
+            else
+            {
+                System.Console.WriteLine("Invalid value;");
+            }
         }
 
 
@@ -34,10 +41,12 @@ namespace GradeBook
 
             return result;
         }
+        public List<double> GetGrades()
+        {
+            return grades;
+        }
         private List<double> grades;
 
-
-
-        private string name;
+        public string Name;
     }
 }
